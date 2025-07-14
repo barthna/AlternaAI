@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlternaAI | Smart Alternative Finder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Water-like background animation -->
+    <div class="water-bg">
+        <div class="water-wave"></div>
+        <div class="water-wave"></div>
+        <div class="water-wave"></div>
+    </div>
+
+    <!-- Modern Header Section -->
+    <header class="modern-header">
+        <div class="header-overlay"></div>
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Left Side - Logo -->
+                <div class="col-md-4">
+                    <div class="brand-section">
+                        <div class="brand-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="brand-text">
+                            <h1 class="brand-name">AlternaAI</h1>
+                            <p class="brand-tagline">Smart Alternatives</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Center - Main Content -->
+                <div class="col-md-8">
+                    <div class="header-main-content">
+                        <div class="hero-badge">
+                            <i class="fas fa-robot"></i>
+                            <span>AI-Powered</span>
+                        </div>
+                        <h2 class="hero-title">Find Better Alternatives</h2>
+                        <p class="hero-description">Discover intelligent product alternatives with comprehensive AI analysis and real-time comparisons</p>
+                        
+                        <!-- Category Pills -->
+                        <div class="category-pills">
+                            <span class="category-pill"><i class="fas fa-mobile-alt"></i> Electronics</span>
+                            <span class="category-pill"><i class="fas fa-car"></i> Automotive</span>
+                            <span class="category-pill"><i class="fas fa-home"></i> Home</span>
+                            <span class="category-pill"><i class="fas fa-gamepad"></i> Gaming</span>
+                            <span class="category-pill"><i class="fas fa-utensils"></i> Kitchen</span>
+                            <span class="category-pill"><i class="fas fa-dumbbell"></i> Sports</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Search Card -->
+        <div class="form-card">
+            <h2 class="form-title">
+                <i class="fas fa-search"></i>
+                Find Alternatives
+            </h2>
+            
+            <div class="search-section">
+                <div class="input-group">
+                    <input type="text" id="itemInput" class="form-control search-input" 
+                           placeholder="Enter any product name (e.g., iPhone 15, Samsung TV, Honda City)">
+                    <button class="btn btn-primary search-btn" id="searchBtn">
+                        <i class="fas fa-search"></i>
+                        <span>Find Alternatives</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enhanced Loading State -->
+        <div id="loadingState" class="loading-state" style="display: none;">
+            <!-- Loading content will be dynamically inserted -->
+        </div>
+
+        <!-- Results Section -->
+        <div id="resultsSection" style="display: none;">
+            <!-- Original Item Details -->
+            <div class="result-card original-item-card">
+                <div class="card-header">
+                    <h3><i class="fas fa-info-circle"></i> Original Item Details</h3>
+                </div>
+                <div class="card-body" id="originalItemDetails">
+                    <!-- Original item details will be populated here with typing effect -->
+                </div>
+            </div>
+
+            <!-- Alternatives Section -->
+            <div class="result-card alternatives-card">
+                <div class="card-header">
+                    <h3><i class="fas fa-list-alt"></i> Alternative Options</h3>
+                </div>
+                <div class="card-body">
+                    <div id="alternativesList" class="alternatives-grid">
+                        <!-- Alternatives will be populated here with typing effects -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enhanced Comparison Modal -->
+        <div class="modal fade" id="comparisonModal" tabindex="-1">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header sticky-top bg-white border-bottom">
+                        <h5 class="modal-title">
+                            <i class="fas fa-balance-scale"></i>
+                            Comparison
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body" style="max-height: 70vh; overflow-y: auto;">
+                        <div id="comparisonContent">
+                            <!-- Comparison content will be loaded here with typing effects -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="footer-section">
+                        <h5><i class="fas fa-brain"></i> AlternaAI</h5>
+                        <p>Your intelligent alternative finder powered by advanced AI technology.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="footer-section">
+                        <h5><i class="fas fa-cog"></i> Features</h5>
+                        <ul>
+                            <li><i class="fas fa-check"></i> AI-Powered Analysis</li>
+                            <li><i class="fas fa-check"></i> Real-time Pricing</li>
+                            <li><i class="fas fa-check"></i> Detailed Comparisons</li>
+                            <li><i class="fas fa-check"></i> Indian Market Focus</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="footer-section">
+                        <h5><i class="fas fa-envelope"></i> Contact</h5>
+                        <p><i class="fas fa-map-marker-alt"></i> India</p>
+                        <p><i class="fas fa-phone"></i> +91 XXXX XXXXXX</p>
+                        <p><i class="fas fa-envelope"></i> info@alternaai.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>&copy; 2025 AlternaAI. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
