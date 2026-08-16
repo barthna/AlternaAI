@@ -74,6 +74,3 @@ AlternaAI/
 ├── .gitignore            # Git ignore rules
 └── README.md             # Project documentation
 ```
-
-## 🤝 Contributing
-Contributions are welcome! Feel free to open issues or submit pull requests.
