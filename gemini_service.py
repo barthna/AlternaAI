@@ -58,7 +58,7 @@ class GeminiService:
             user_prompt = f"Find alternatives for: {item_name}"
             
             response = self.client.models.generate_content(
-                model="gemini-2.5-flash",
+                model="gemini-3.5-flash",
                 contents=[
                     types.Content(role="user", parts=[types.Part(text=user_prompt)])
                 ],
@@ -130,7 +130,7 @@ class GeminiService:
             user_prompt = f"Compare: '{original_item}' vs '{alternative_item}'"
             
             response = self.client.models.generate_content(
-                model="gemini-2.5-flash",
+                model="gemini-3.5-flash",
                 contents=[
                     types.Content(role="user", parts=[types.Part(text=user_prompt)])
                 ],
